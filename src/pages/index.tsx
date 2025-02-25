@@ -7,7 +7,7 @@ import SeeWall from '@/assets/AlbumArtwork/seewall.jpeg';
 export default function Home() {
   return (
     <>
-      <main className="flex justify-center flex-wrap gap-4 bg-transparent mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
+      <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 bg-transparent mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
         <Image
           className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
           src={ImageEyes}
@@ -51,6 +51,30 @@ export default function Home() {
         <Image
           className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
           src={ImageEyes}
+          alt={''}
+          width={400}
+          height={350}
+        />
+
+        <Image
+          className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
+          src={PostDesifng}
+          alt={''}
+          width={400}
+          height={350}
+        />
+
+        <Image
+          className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
+          src={SeeWall}
+          alt={''}
+          width={400}
+          height={350}
+        />
+
+        <Image
+          className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
+          src={PostDesifng}
           alt={''}
           width={400}
           height={350}
