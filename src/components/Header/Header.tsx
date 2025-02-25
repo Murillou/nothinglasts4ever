@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,29 +10,29 @@ export default function Header() {
   };
 
   return (
-    <header className=" bg-transparent lg:bg-red-700 text-white p-4">
+    <header className=" bg-transparent max-w-2xl md:max-w-4xl lg:max-w-7xl mx-auto text-[#e0e0e0] p-4">
       <div className="flex items-center justify-between">
         <div className="text-xl font-bold">
           <a href="/">nothinglasts4ever</a>
         </div>
 
         <nav className="hidden lg:flex space-x-6">
-          <a href="#home" className="hover:text-gray-400">
+          <Link href={'/albumartwork'} className="hover:text-gray-400">
             Album Artwork
-          </a>
+          </Link>
 
-          <a href="#about" className="hover:text-gray-400">
+          <a href="" className="hover:text-gray-400">
             Personal Work
           </a>
 
-          <a href="#services" className="hover:text-gray-400">
+          <a href="" className="hover:text-gray-400">
             Merchandise
           </a>
 
-          <a href="#blog" className="hover:text-gray-400">
+          <a href="" className="hover:text-gray-400">
             About me
           </a>
-          <a href="#contact" className="hover:text-gray-400">
+          <a href={'/contact'} className="hover:text-gray-400">
             Contact
           </a>
         </nav>
@@ -53,9 +54,9 @@ export default function Header() {
             transition={{ duration: 0.3 }}
             className="flex flex-col justify-center items-center lg:hidden mt-12 space-y-20"
           >
-            <a href="#about" className="block hover:text-gray-400">
+            <Link href={'/albumartwork'} className="block hover:text-gray-400">
               Album Artwork
-            </a>
+            </Link>
             <a href="#services" className="block hover:text-gray-400">
               Personal Work
             </a>
