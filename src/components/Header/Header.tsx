@@ -1,17 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { List, X } from 'phosphor-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  useEffect(() => {
+    AOS.init({
+      startEvent: 'DOMContentLoaded',
+      initClassName: 'aos-init',
+      duration: 400,
+      easing: 'ease',
+    });
+  }, []);
+
+  function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
-  };
+  }
 
   return (
-    <header className=" bg-transparent max-w-2xl md:max-w-4xl lg:max-w-7xl mx-auto text-[#e0e0e0] p-4">
-      <div className="flex items-center justify-between">
+    <header
+      data-aos="fade-in"
+      className="bg-transparent max-w-2xl md:max-w-4xl lg:max-w-7xl mx-auto text-[#e0e0e0] p-4"
+    >
+      <div
+        className={`flex items-center justify-between ${
+          isMenuOpen ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
         <div className="text-xl font-bold">
           <a href="/">nothinglasts4ever</a>
         </div>
@@ -21,15 +40,15 @@ export default function Header() {
             Album Artwork
           </Link>
 
-          <a href="" className="hover:text-gray-400">
+          <a href={''} className="hover:text-gray-400">
             Personal Work
           </a>
 
-          <a href="" className="hover:text-gray-400">
+          <a href={''} className="hover:text-gray-400">
             Merchandise
           </a>
 
-          <a href="" className="hover:text-gray-400">
+          <a href={'/aboutme'} className="hover:text-gray-400">
             About me
           </a>
           <a href={'/contact'} className="hover:text-gray-400">
@@ -41,7 +60,7 @@ export default function Header() {
           onClick={toggleMenu}
           className="lg:hidden text-2xl focus:outline-none"
         >
-          {isMenuOpen ? '×' : '☰'}
+          <List />
         </button>
       </div>
 
@@ -52,23 +71,46 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col justify-center items-center lg:hidden mt-12 space-y-20"
+            className="flex flex-col items-center lg:hidden space-y-20 top-0 right-0 fixed inset-0 z-[200] min-h-full bg-[#1e1e1e] "
           >
-            <Link href={'/albumartwork'} className="block hover:text-gray-400">
+            <button className="absolute top-5 right-5" onClick={toggleMenu}>
+              <X size={20} />
+            </button>
+            <Link
+              href={'/albumartwork'}
+              onClick={toggleMenu}
+              className="block hover:text-gray-400"
+            >
               Album Artwork
             </Link>
-            <a href="#services" className="block hover:text-gray-400">
+            <Link
+              href={''}
+              className="block hover:text-gray-400"
+              onClick={toggleMenu}
+            >
               Personal Work
-            </a>
-            <a href="#portfolio" className="block hover:text-gray-400">
+            </Link>
+            <Link
+              href={''}
+              className="block hover:text-gray-400"
+              onClick={toggleMenu}
+            >
               Merchandise
-            </a>
-            <a href="#blog" className="block hover:text-gray-400">
+            </Link>
+            <Link
+              href={'/aboutme'}
+              className="block hover:text-gray-400"
+              onClick={toggleMenu}
+            >
               About me
-            </a>
-            <a href="#contact" className="block hover:text-gray-400">
+            </Link>
+            <Link
+              href={'/contact'}
+              className="block hover:text-gray-400"
+              onClick={toggleMenu}
+            >
               Contact
-            </a>
+            </Link>
           </motion.nav>
         )}
       </AnimatePresence>

@@ -1,10 +1,27 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 export default function aboutMe() {
+  useEffect(() => {
+    AOS.init({
+      startEvent: 'DOMContentLoaded',
+      initClassName: 'aos-init',
+      duration: 400,
+      easing: 'ease',
+      once: false,
+    });
+  }, []);
+
   return (
-    <div className="flex flex-col justify-center items-center gap-4 min-h-[calc(100vh-10rem)] max-w-2xl mx-auto">
+    <div
+      data-aos="fade-in"
+      className="flex flex-col justify-center items-center gap-4 min-h-[calc(100vh-10rem)] max-w-2xl mx-auto"
+    >
       <h1 className="text-3xl font-medium text-[#e0e0e0]">About me</h1>
 
-      <div className="break-words">
-        <p>
+      <div>
+        <p className="text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
