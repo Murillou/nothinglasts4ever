@@ -2,19 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #1e1e1e;
-  --foreground: #ededed;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, sans-serif;
-  scrollbar-width: thin;
-  scrollbar-color: #888 var(--bg-color);
-}
-
 @layer components {
   ::-webkit-scrollbar {
     width: 12px;
@@ -32,4 +19,23 @@ body {
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+}
+
+:root {
+  --background: #1e1e1e;
+  --foreground: #ededed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #888 var(--bg-color);
 }
