@@ -1,6 +1,6 @@
 # Nothinglasts4ver
 
-Este projeto foi desenvolvido como um portfólio para um amigo, utilizando **Next.js**, **TypeScript**, **Tailwind CSS**, **Jest** e **Testing Library**. O objetivo foi criar uma aplicação responsiva e funcional com uma interface de usuário moderna, além de garantir qualidade com testes unitários.
+Este projeto foi desenvolvido como um portfólio para um cliente, utilizando **Next.js**, **TypeScript**, **Tailwind CSS**, **Jest** e **Testing Library**. O objetivo foi criar uma aplicação responsiva e funcional com uma interface de usuário moderna, além de garantir qualidade com testes unitários.
 
 ## Tecnologias
 
