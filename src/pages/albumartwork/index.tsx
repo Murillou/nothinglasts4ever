@@ -1,55 +1,35 @@
+import { images } from '@/data/albumArtwork';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Image from 'next/image';
-import ImageEyes from '@/assets/AlbumArtwork/414676506_1127682261725159_7084449980680345099_n.jpeg';
+import { useEffect } from 'react';
 
 export default function AlbumArtoworkPage() {
+  useEffect(() => {
+    AOS.init({
+      startEvent: 'DOMContentLoaded',
+      initClassName: 'aos-init',
+      duration: 400,
+      easing: 'ease',
+      once: false,
+    });
+  }, []);
+
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 bg-transparent mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
-      <Image
-        className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
-        src={ImageEyes}
-        alt={''}
-        width={400}
-        height={350}
-      />
-
-      <Image
-        className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
-        src={ImageEyes}
-        alt={''}
-        width={400}
-        height={350}
-      />
-
-      <Image
-        className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
-        src={ImageEyes}
-        alt={''}
-        width={400}
-        height={350}
-      />
-      <Image
-        className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
-        src={ImageEyes}
-        alt={''}
-        width={400}
-        height={350}
-      />
-
-      <Image
-        className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
-        src={ImageEyes}
-        alt={''}
-        width={400}
-        height={350}
-      />
-
-      <Image
-        className="cursor-pointer rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
-        src={ImageEyes}
-        alt={''}
-        width={400}
-        height={350}
-      />
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
+      {images.map((image, key) => (
+        <div className="cursor-pointer shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105">
+          <Image
+            key={key}
+            src={image}
+            alt=""
+            width={400}
+            height={350}
+            className="rounded-2xl "
+            data-aos="fade-up"
+          />
+        </div>
+      ))}
     </div>
   );
 }
