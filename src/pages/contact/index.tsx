@@ -23,7 +23,7 @@ export default function Contact() {
 
       <div
         data-aos="fade-in"
-        className="flex flex-col items-center justify-center gap-4 min-h-[calc(100vh-8.9rem)] bg-transparent text-[#e0e0e0]"
+        className="flex flex-col items-center justify-center gap-4 h-[calc(100vh-8.9rem)] bg-transparent text-[#e0e0e0]"
       >
         <h1 className="text-3xl font-medium text-[#e0e0e0]">Contact me</h1>
 
