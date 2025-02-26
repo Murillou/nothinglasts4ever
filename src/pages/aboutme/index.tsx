@@ -3,7 +3,7 @@ import 'aos/dist/aos.css';
 import Head from 'next/head';
 import { useEffect } from 'react';
 
-export default function aboutMe() {
+export default function AboutMe() {
   useEffect(() => {
     AOS.init({
       startEvent: 'DOMContentLoaded',

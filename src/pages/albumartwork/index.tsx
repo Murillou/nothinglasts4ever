@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
 
-export default function AlbumArtoworkPage() {
+export default function AlbumArtworkPage() {
   useEffect(() => {
     AOS.init({
       startEvent: 'DOMContentLoaded',

@@ -32,7 +32,7 @@ export default function Header() {
         }`}
       >
         <div className="text-xl font-bold">
-          <a href="/">nothinglasts4ever</a>
+          <Link href="/">nothinglasts4ever</Link>
         </div>
 
         <nav className="hidden lg:flex space-x-6">
@@ -40,20 +40,21 @@ export default function Header() {
             Album Artwork
           </Link>
 
-          <a href={''} className="hover:text-gray-400">
+          <Link href={'/personalwork'} className="hover:text-gray-400">
             Personal Work
-          </a>
+          </Link>
 
-          <a href={''} className="hover:text-gray-400">
+          <Link href={'/merchandise'} className="hover:text-gray-400">
             Merchandise
-          </a>
+          </Link>
 
-          <a href={'/aboutme'} className="hover:text-gray-400">
+          <Link href={'/aboutme'} className="hover:text-gray-400">
             About me
-          </a>
-          <a href={'/contact'} className="hover:text-gray-400">
+          </Link>
+
+          <Link href={'/contact'} className="hover:text-gray-400">
             Contact
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -73,9 +74,14 @@ export default function Header() {
             transition={{ duration: 0.3 }}
             className="flex flex-col items-center lg:hidden space-y-20 top-0 right-0 fixed inset-0 z-[200] min-h-full bg-[#1e1e1e] "
           >
-            <button className="absolute top-5 right-5" onClick={toggleMenu}>
+            <button
+              data-testid="close-button"
+              className="absolute top-5 right-5"
+              onClick={toggleMenu}
+            >
               <X size={20} />
             </button>
+
             <Link
               href={'/albumartwork'}
               onClick={toggleMenu}
@@ -83,20 +89,23 @@ export default function Header() {
             >
               Album Artwork
             </Link>
+
             <Link
-              href={''}
+              href={'/personalwork'}
               className="block hover:text-gray-400"
               onClick={toggleMenu}
             >
               Personal Work
             </Link>
+
             <Link
-              href={''}
+              href={'/merchandise'}
               className="block hover:text-gray-400"
               onClick={toggleMenu}
             >
               Merchandise
             </Link>
+
             <Link
               href={'/aboutme'}
               className="block hover:text-gray-400"
@@ -104,6 +113,7 @@ export default function Header() {
             >
               About me
             </Link>
+
             <Link
               href={'/contact'}
               className="block hover:text-gray-400"
