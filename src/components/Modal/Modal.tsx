@@ -22,7 +22,7 @@ export default function ImageModal({
           className="fixed inset-0 bg-black bg-opacity-75"
           onClick={() => setSelectedImage(null)}
         />
-        <div className="relative p-2">
+        <div className="relative p-4">
           {selectedImage && (
             <Image
               className="max-w-full max-h-full"
