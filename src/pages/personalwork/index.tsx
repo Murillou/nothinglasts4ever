@@ -1,7 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import PostDesign from '@/assets/AlbumArtwork/postdesign.jpeg';
 import Image from 'next/image';
+import { images } from '@/data/personalWork';
 import { useEffect } from 'react';
 
 export default function PersonalWork() {
@@ -14,8 +14,6 @@ export default function PersonalWork() {
       once: false,
     });
   }, []);
-
-  const images = Array(12).fill(PostDesign);
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
