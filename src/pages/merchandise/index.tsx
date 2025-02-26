@@ -25,9 +25,11 @@ export default function Merchandise() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
         {images.map((image, key) => (
-          <div className="cursor-pointer shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105">
+          <div
+            key={key}
+            className="cursor-pointer shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
+          >
             <Image
-              key={key}
               src={image}
               alt=""
               width={400}
