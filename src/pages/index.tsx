@@ -1,10 +1,10 @@
+import Image, { StaticImageData } from 'next/image';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Image, { StaticImageData } from 'next/image';
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { X } from 'phosphor-react';
+import Head from 'next/head';
 import { images } from '@/data/home';
 
 export default function Home() {
@@ -29,8 +29,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>nothinglasts4ever</title>
-        <meta name="robots" />
+        <title>Nothinglasts4ever</title>
+        <meta name="robots" content="index, follow" />
       </Head>
       <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 bg-transparent mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
         {images.map((image, key) => (
