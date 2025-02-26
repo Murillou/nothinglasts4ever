@@ -3,7 +3,7 @@ import AlbumArtworkPage from '@/pages/albumartwork';
 import { render } from '@testing-library/react';
 
 jest.mock('@/data/albumArtwork', () => ({
-  images: Array(12).fill('test-file-stub'),
+  images: Array(images),
 }));
 
 describe('Album Artwork Page', () => {
