@@ -1,11 +1,16 @@
+import ImageModal from '@/components/Modal/Modal';
 import { images } from '@/data/merchandise';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Head from 'next/head';
-import Image from 'next/image';
-import { useEffect } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function Merchandise() {
+  const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(
+    null
+  );
+
   useEffect(() => {
     AOS.init({
       startEvent: 'DOMContentLoaded',
@@ -15,6 +20,10 @@ export default function Merchandise() {
       once: false,
     });
   }, []);
+
+  function handleImageClick(src: StaticImageData) {
+    setSelectedImage(src);
+  }
 
   return (
     <>
@@ -28,6 +37,9 @@ export default function Merchandise() {
           <div
             key={key}
             className="cursor-pointer shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
+            onClick={() => {
+              handleImageClick(image);
+            }}
           >
             <Image
               src={image}
@@ -40,6 +52,11 @@ export default function Merchandise() {
           </div>
         ))}
       </div>
+
+      <ImageModal
+        setSelectedImage={setSelectedImage}
+        selectedImage={selectedImage}
+      />
     </>
   );
 }

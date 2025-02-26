@@ -1,11 +1,16 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { images } from '@/data/personalWork';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import ImageModal from '@/components/Modal/Modal';
 
 export default function PersonalWork() {
+  const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(
+    null
+  );
+
   useEffect(() => {
     AOS.init({
       startEvent: 'DOMContentLoaded',
@@ -16,6 +21,10 @@ export default function PersonalWork() {
     });
   }, []);
 
+  function handleImageClick(src: StaticImageData) {
+    setSelectedImage(src);
+  }
+
   return (
     <>
       <Head>
@@ -25,7 +34,10 @@ export default function PersonalWork() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
         {images.map((image, key) => (
-          <div className="cursor-pointer shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105">
+          <div
+            className="cursor-pointer shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
+            onClick={() => handleImageClick(image)}
+          >
             <Image
               key={key}
               src={image}
@@ -38,6 +50,11 @@ export default function PersonalWork() {
           </div>
         ))}
       </div>
+
+      <ImageModal
+        setSelectedImage={setSelectedImage}
+        selectedImage={selectedImage}
+      />
     </>
   );
 }
