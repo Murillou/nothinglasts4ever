@@ -15,5 +15,4 @@ export const images = [
   { src: PostDesifng, alt: '' },
   { src: SeeWall, alt: '' },
   { src: PostDesifng, alt: '' },
-  { src: PostDesifng, alt: '' },
 ];
