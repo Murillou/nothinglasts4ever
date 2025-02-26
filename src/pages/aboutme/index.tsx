@@ -23,7 +23,7 @@ export default function AboutMe() {
 
       <div
         data-aos="fade-in"
-        className="flex flex-col justify-center items-center gap-4 min-h-[calc(100vh-10rem)] max-w-2xl mx-auto"
+        className="flex flex-col justify-center items-center gap-4 min-h-[calc(100vh-8.9rem)] max-w-2xl mx-auto"
       >
         <h1 className="text-3xl font-medium text-[#e0e0e0]">About me</h1>
 
