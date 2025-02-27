@@ -1,17 +1,15 @@
-import Image, { StaticImageData } from 'next/image';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect, useState } from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
-import { X } from 'phosphor-react';
+import Image from 'next/image';
+import { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import { images } from '@/data/home';
 import ImageModal from '@/components/Modal/Modal';
+import { ImageExpandContext } from '@/context/ImageExpandContext';
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(
-    null
-  );
+  const { selectedImage, setSelectedImage, handleClickImage } =
+    useContext(ImageExpandContext);
 
   useEffect(() => {
     AOS.init({
@@ -23,10 +21,6 @@ export default function Home() {
     });
   }, []);
 
-  function handleImageClick(src: StaticImageData) {
-    setSelectedImage(src);
-  }
-
   return (
     <>
       <Head>
@@ -36,11 +30,11 @@ export default function Home() {
       <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 bg-transparent mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
         {images.map((image, key) => (
           <div
+            key={key}
             className="cursor-pointer shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
-            onClick={() => handleImageClick(image.src)}
+            onClick={() => handleClickImage(image.src)}
           >
             <Image
-              key={key}
               src={image.src}
               className="rounded-2xl "
               alt=""

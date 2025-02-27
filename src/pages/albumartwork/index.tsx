@@ -1,15 +1,15 @@
 import ImageModal from '@/components/Modal/Modal';
+import { ImageExpandContext } from '@/context/ImageExpandContext';
 import { images } from '@/data/albumArtwork';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Head from 'next/head';
-import Image, { StaticImageData } from 'next/image';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useContext, useEffect } from 'react';
 
 export default function AlbumArtworkPage() {
-  const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(
-    null
-  );
+  const { selectedImage, handleClickImage, setSelectedImage } =
+    useContext(ImageExpandContext);
 
   useEffect(() => {
     AOS.init({
@@ -20,10 +20,6 @@ export default function AlbumArtworkPage() {
       once: false,
     });
   }, []);
-
-  function handleClickImage(src: StaticImageData) {
-    setSelectedImage(src);
-  }
 
   return (
     <>
