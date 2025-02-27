@@ -1,15 +1,15 @@
-import ImageModal from '@/components/Modal/Modal';
-import { images } from '@/data/merchandise';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import ImageModal from '@/components/Modal/Modal';
+import { ImageExpandContext } from '@/context/ImageExpandContext';
+import { images } from '@/data/merchandise';
 import Head from 'next/head';
-import Image, { StaticImageData } from 'next/image';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useContext, useEffect } from 'react';
 
 export default function Merchandise() {
-  const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(
-    null
-  );
+  const { selectedImage, setSelectedImage, handleClickImage } =
+    useContext(ImageExpandContext);
 
   useEffect(() => {
     AOS.init({
@@ -20,10 +20,6 @@ export default function Merchandise() {
       once: false,
     });
   }, []);
-
-  function handleImageClick(src: StaticImageData) {
-    setSelectedImage(src);
-  }
 
   return (
     <>
@@ -38,7 +34,7 @@ export default function Merchandise() {
             key={key}
             className="cursor-pointer shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
             onClick={() => {
-              handleImageClick(image);
+              handleClickImage(image);
             }}
           >
             <Image

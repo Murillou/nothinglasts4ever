@@ -1,15 +1,15 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { images } from '@/data/personalWork';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import ImageModal from '@/components/Modal/Modal';
+import { ImageExpandContext } from '@/context/ImageExpandContext';
 
 export default function PersonalWork() {
-  const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(
-    null
-  );
+  const { selectedImage, setSelectedImage, handleClickImage } =
+    useContext(ImageExpandContext);
 
   useEffect(() => {
     AOS.init({
@@ -21,10 +21,6 @@ export default function PersonalWork() {
     });
   }, []);
 
-  function handleImageClick(src: StaticImageData) {
-    setSelectedImage(src);
-  }
-
   return (
     <>
       <Head>
@@ -35,11 +31,11 @@ export default function PersonalWork() {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 mx-auto text-[#e0e0e0] px-2 lg:px-20 py-4">
         {images.map((image, key) => (
           <div
+            key={key}
             className="cursor-pointer shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105"
-            onClick={() => handleImageClick(image)}
+            onClick={() => handleClickImage(image)}
           >
             <Image
-              key={key}
               src={image}
               alt=""
               width={400}
