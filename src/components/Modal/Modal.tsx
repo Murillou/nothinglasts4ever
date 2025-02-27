@@ -25,7 +25,7 @@ export default function ImageModal({
         <div className="relative p-4">
           <Dialog.Close asChild>
             <button
-              className="absolute top-0 right-2 -mt-4 "
+              className="absolute top-0 right-2 -mt-4 outline-none"
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
