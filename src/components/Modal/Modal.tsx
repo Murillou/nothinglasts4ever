@@ -28,13 +28,13 @@ export default function ImageModal({
               className="max-w-full max-h-full"
               src={selectedImage}
               alt="Expanded view"
-              width={700}
+              width={600}
               height={600}
             />
           )}
           <Dialog.Close asChild>
             <button
-              className="absolute top-5 right-5 text-white text-2xl"
+              className="absolute top-[-15] right-2 md:top-[-15] md:right-[-25] text-white text-2xl"
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
