@@ -23,23 +23,23 @@ export default function ImageModal({
           onClick={() => setSelectedImage(null)}
         />
         <div className="relative p-4">
-          {selectedImage && (
-            <Image
-              className="max-w-full max-h-full"
-              src={selectedImage}
-              alt="Expanded view"
-              width={600}
-              height={600}
-            />
-          )}
           <Dialog.Close asChild>
             <button
-              className="absolute top-[-15] right-2 md:top-[-15] md:right-[-25] text-white text-2xl"
+              className="absolute top-0 right-2 -mt-4 "
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
             </button>
           </Dialog.Close>
+          {selectedImage && (
+            <Image
+              className="max-w-full max-h-full"
+              src={selectedImage}
+              alt="Expanded view"
+              width={500}
+              height={300}
+            />
+          )}
         </div>
       </Dialog.Content>
     </Dialog.Root>
